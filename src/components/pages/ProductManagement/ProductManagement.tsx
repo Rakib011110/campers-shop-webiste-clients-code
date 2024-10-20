@@ -19,15 +19,15 @@ const ProductManagement = () => {
   const [deleteProduct] = useDeleteProductMutation();
   const [updateProduct] = useUpdateProductMutation();
 
-  const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null); // Track the selected product for updating
-  const [isModalOpen, setIsModalOpen] = useState(false); // Track whether modal is open
+  const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      refetch(); // Refetch product data
+      refetch();
     }, 1000);
 
-    return () => clearInterval(interval); // Cleanup on component unmount
+    return () => clearInterval(interval);
   }, [refetch]);
 
   // Handle delete with confirmation
@@ -47,14 +47,14 @@ const ProductManagement = () => {
 
   // Handle open modal with product data
   const openUpdateModal = (product: IProduct) => {
-    setSelectedProduct(product); // Set the selected product
-    setIsModalOpen(true); // Open modal
+    setSelectedProduct(product);
+    setIsModalOpen(true);
   };
 
   // Handle close modal
   const closeModal = () => {
-    setIsModalOpen(false); // Close modal
-    setSelectedProduct(null); // Clear selected product
+    setIsModalOpen(false);
+    setSelectedProduct(null);
   };
 
   // Handle update submission
@@ -68,7 +68,10 @@ const ProductManagement = () => {
   }) => {
     if (!selectedProduct) return;
     try {
-      await updateProduct({ id: selectedProduct._id, data: formData }).unwrap();
+      await updateProduct({
+        id: selectedProduct._id as any,
+        data: formData,
+      }).unwrap();
       console.log("Product updated successfully");
       refetch(); // Refetch product data after update
       closeModal(); // Close modal after successful update
@@ -126,7 +129,7 @@ const ProductManagement = () => {
                   Update
                 </button>
                 <button
-                  onClick={() => handleDeleteProduct(product._id)}
+                  onClick={() => handleDeleteProduct(product._id as any)}
                   className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-500">
                   Delete
                 </button>

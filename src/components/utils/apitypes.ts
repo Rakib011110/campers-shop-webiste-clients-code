@@ -5,7 +5,7 @@ export type TResponseRedux = {
   error?: string;
   map?: any;
   slice: any;
-
+  length?: any;
   filter?: any;
   find?: any;
 };

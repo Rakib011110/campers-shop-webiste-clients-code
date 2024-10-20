@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useGetAllProductsQuery } from "../../../../redux/api/productsApi";
 import { Link } from "react-router-dom";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import Button from "../../../utils/Button";
 
 interface Product {
@@ -14,7 +16,6 @@ interface Product {
 
 const Products = () => {
   const { data: products = [], isLoading, error } = useGetAllProductsQuery({});
-  console.log(products);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
@@ -133,11 +134,13 @@ const Products = () => {
           <div
             key={product._id}
             className="border border-blue-600 rounded-xl bg-white shadow-md p-4">
-            <img
-              src={product.imageUrl}
-              alt={product.name}
-              className="h-40 w-full border p-3 border-blue-800 object-cover rounded-md mb-4"
-            />
+            <Zoom>
+              <img
+                src={product.imageUrl}
+                alt={product.name}
+                className="h-40 w-full border p-3 border-blue-800 object-cover rounded-md mb-4"
+              />
+            </Zoom>
             <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
             <p className="text-gray-600 mb-2">{product.description}</p>
             <p className="text-lg font-bold mb-4">${product.price}</p>

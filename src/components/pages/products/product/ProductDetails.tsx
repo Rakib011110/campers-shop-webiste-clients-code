@@ -2,12 +2,13 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useGetProductByIdQuery } from "../../../../redux/api/productsApi";
 import { useAddToCartMutation } from "../../../../redux/api/cartApi";
+import Zoom from "react-medium-image-zoom";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { data: product, isLoading, error } = useGetProductByIdQuery(id || "");
-  const [addToCart] = useAddToCartMutation(); // Mutation to add item to cart
-  const [quantity, setQuantity] = useState<number>(1); // Quantity state
+  const [addToCart] = useAddToCartMutation();
+  const [quantity, setQuantity] = useState<number>(1);
 
   if (isLoading) {
     console.log("Product data is loading...");
@@ -40,12 +41,15 @@ const ProductDetails = () => {
   return (
     <div className="max-w-4xl mx-auto mt-8 p-6 bg-white shadow-lg rounded-lg flex">
       {/* Product Image */}
+
       <div className="w-1/2">
-        <img
-          src={product?.imageUrl}
-          alt={product?.name}
-          className="w-full h-auto rounded-md"
-        />
+        <Zoom>
+          <img
+            src={product?.imageUrl}
+            alt={product?.name}
+            className="w-full h-auto rounded-md"
+          />
+        </Zoom>
       </div>
 
       {/* Product Details */}
@@ -70,7 +74,7 @@ const ProductDetails = () => {
 
         {/* Stock Information */}
         <div className="mt-4">
-          {product?.stock > 0 ? (
+          {(product?.stock as any) > 0 ? (
             <p className="text-green-500 text-lg">In Stock: {product?.stock}</p>
           ) : (
             <p className="text-red-500 text-lg">Out of Stock</p>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa"; // FontAwesome shopping cart icon
 import { useGetAllCartsQuery } from "../../../redux/api/cartApi";
 
@@ -12,25 +12,23 @@ const CartIndex = () => {
     error,
     refetch,
   } = useGetAllCartsQuery();
-  //   console.log(fetchedCartData);
-  // Fetch cart data every 1 second
+
   useEffect(() => {
     const interval = setInterval(() => {
-      refetch(); // Refetch cart data
+      refetch();
     }, 1000);
 
-    return () => clearInterval(interval); // Cleanup on component unmount
+    return () => clearInterval(interval);
   }, [refetch]);
 
-  // Update cart data and total items
   useEffect(() => {
     if (fetchedCartData) {
-      setCartData(fetchedCartData);
+      setCartData(fetchedCartData as any);
       const totalItems = fetchedCartData.reduce(
         (acc, item) => acc + item.quantity,
         0
       );
-      setTotalItemsInCart(totalItems);
+      setTotalItemsInCart(totalItems as any);
     }
   }, [fetchedCartData]);
 
@@ -39,9 +37,8 @@ const CartIndex = () => {
 
   return (
     <div className="relative">
-      {/* Cart Icon */}
       <FaShoppingCart size={24} />
-      {/* Show the number of items in the cart */}
+
       <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 text-xs">
         {totalItemsInCart}
       </span>

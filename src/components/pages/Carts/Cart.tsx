@@ -2,16 +2,14 @@ import { useEffect, useState } from "react";
 import {
   useGetAllCartsQuery,
   useRemoveFromCartMutation,
-  useClearCartMutation,
   useUpdateCartQuantityMutation,
 } from "../../../redux/api/cartApi";
 import { useNavigate } from "react-router-dom";
-import Button from "../../utils/Button";
 
 const Cart = () => {
   const { data: cartItems = [], isLoading, isError } = useGetAllCartsQuery();
   const [removeFromCart] = useRemoveFromCartMutation();
-  const [clearCart] = useClearCartMutation();
+  // const [clearCart] = useClearCartMutation();
   const [updateCartQuantity] = useUpdateCartQuantityMutation();
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
@@ -64,7 +62,7 @@ const Cart = () => {
       ) : (
         <div className="mt-6">
           <ul>
-            {cartItems.map((item) => (
+            {cartItems.map((item: any) => (
               <li key={item._id} className="flex justify-between p-4 border-b">
                 <div className="flex items-center">
                   <img

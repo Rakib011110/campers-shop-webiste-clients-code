@@ -17,7 +17,7 @@ const Checkout = () => {
   const totalPrice = cartItems.reduce(
     (acc, item) => acc + item?.product?.price * item.quantity,
     0
-  );
+  ) as any;
 
   const handlePlaceOrder = async (event: React.FormEvent) => {
     event.preventDefault(); // Prevent page refresh
@@ -29,7 +29,7 @@ const Checkout = () => {
       phone,
       address,
       paymentMethod,
-      products: cartItems.map((item) => ({
+      products: cartItems.map((item: any) => ({
         product: item.product._id,
         quantity: item.quantity,
       })),

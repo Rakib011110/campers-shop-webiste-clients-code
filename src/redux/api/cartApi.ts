@@ -1,10 +1,8 @@
 import { TResponseRedux } from "../../components/utils/apitypes";
 import baseApi from "../baseApi";
 
-// Redux Toolkit Query setup for cart API
 export const cartApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    // Get all cart items
     getAllCarts: builder.query<TResponseRedux, void>({
       query: () => ({
         url: "/cart",
@@ -40,7 +38,6 @@ export const cartApi = baseApi.injectEndpoints({
       }),
     }),
 
-    // Update product quantity in the cart
     updateCartQuantity: builder.mutation<
       TResponseRedux,
       { productId: string; quantity: number }
@@ -59,7 +56,7 @@ export const {
   useAddToCartMutation,
   useRemoveFromCartMutation,
   useClearCartMutation,
-  useUpdateCartQuantityMutation, // Export the new mutation
+  useUpdateCartQuantityMutation,
 } = cartApi;
 
 export default cartApi;

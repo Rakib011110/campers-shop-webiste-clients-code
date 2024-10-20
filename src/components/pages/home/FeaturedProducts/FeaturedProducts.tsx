@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -9,19 +9,20 @@ import Title from "../../../utils/Title";
 
 const FeaturedProducts = () => {
   const [width, setWidth] = useState(0);
-  const carousel = useRef(null);
+  const carousel = useRef<HTMLDivElement | null>(null);
+
+  const { data: products, isLoading } = useGetAllProductsQuery({ limit: 10 });
 
   useEffect(() => {
     if (carousel.current) {
       setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
     }
-  }, []);
+  }, [products]);
 
   // Fetching featured products
-  const { data: products, isLoading } = useGetAllProductsQuery({ limit: 4 });
 
   if (isLoading) {
-    return <div>Loading...</div>; // You can add a spinner or a loading indicator here
+    return <div>Loading...</div>;
   }
 
   return (
