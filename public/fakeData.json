@@ -1,0 +1,146 @@
+[
+  {
+    "name": "4-Person Waterproof Tent",
+    "price": 199.99,
+    "description": "Durable and waterproof tent for up to 4 people.",
+    "category": "Tents",
+    "stock": 15,
+    "imageUrl": "https://m.media-amazon.com/images/I/81LIPz6DurL._AC_SL1500_.jpg",
+    "rating": 4.8
+  },
+  {
+    "name": "2-Person Ultralight Tent",
+    "price": 129.99,
+    "description": "Compact and lightweight tent, ideal for backpackers.",
+    "category": "Tents",
+    "stock": 30,
+    "imageUrl": "https://m.media-amazon.com/images/I/61c+YmQ1KAL.jpg",
+    "rating": 4.6
+  },
+  {
+    "name": "6-Person Family Tent",
+    "price": 299.99,
+    "description": "Spacious tent for large groups or families.",
+    "category": "Tents",
+    "stock": 8,
+    "imageUrl": "https://m.media-amazon.com/images/I/61T1RHrQByL.jpg",
+    "rating": 4.9
+  },
+  {
+    "name": "Camping Hammock Tent",
+    "price": 79.99,
+    "description": "Lightweight hammock tent perfect for solo adventurers.",
+    "category": "Tents",
+    "stock": 25,
+    "imageUrl": "https://m.media-amazon.com/images/I/519VUYoG3dL.jpg",
+    "rating": 4.5
+  },
+  {
+    "name": "Portable Camping Stove",
+    "price": 49.99,
+    "description": "Compact and efficient stove for outdoor cooking.",
+    "category": "Camping Gear",
+    "stock": 50,
+    "imageUrl": "https://cdn.thewirecutter.com/wp-content/media/2022/07/campstove-2048px-colemancascade.jpg",
+    "rating": 4.8
+  },
+  {
+    "name": "Camping Chair with Cup Holder",
+    "price": 39.99,
+    "description": "Foldable camping chair with built-in cup holder.",
+    "category": "Camping Gear",
+    "stock": 70,
+    "imageUrl": "https://media.diy.com/is/image/KingfisherDigital/dawsons-living-deluxe-camping-fishing-padded-chair-with-cup-holder-and-cooler-bag~5056337107825_01c_MP?$MOB_PREV$&$width=768&$height=768",
+    "rating": 4.7
+  },
+  {
+    "name": "Sleeping Bag - 20°F",
+    "price": 89.99,
+    "description": "Comfortable sleeping bag for extreme temperatures.",
+    "category": "Camping Gear",
+    "stock": 40,
+    "imageUrl": "https://m.media-amazon.com/images/I/61BiH-6Q1ZL.jpg",
+    "rating": 4.9
+  },
+  {
+    "name": "LED Camping Lantern",
+    "price": 19.99,
+    "description": "Bright and long-lasting lantern with rechargeable batteries.",
+    "category": "Camping Gear",
+    "stock": 100,
+    "imageUrl": "https://m.media-amazon.com/images/I/61U2UGrk8lL._AC_UF894,1000_QL80_.jpg",
+    "rating": 4.6
+  },
+  {
+    "name": "First Aid Kit",
+    "price": 29.99,
+    "description": "Comprehensive first aid kit with 100+ items for outdoor use.",
+    "category": "Safety",
+    "stock": 60,
+    "imageUrl": "https://images.thdstatic.com/productImages/97839757-c669-44b6-a3f6-88afdecb16eb/svn/reds-pinks-hdx-first-aid-kits-59619-64_1000.jpg",
+    "rating": 4.7
+  },
+  {
+    "name": "Emergency Whistle",
+    "price": 5.99,
+    "description": "High-pitched whistle for emergency signaling.",
+    "category": "Safety",
+    "stock": 200,
+    "imageUrl": "https://m.media-amazon.com/images/I/61329mBqTSL._AC_UF1000,1000_QL80_.jpg",
+    "rating": 4.5
+  },
+  {
+    "name": "Fire Starter Kit",
+    "price": 15.99,
+    "description": "Easy-to-use fire starter for camping or survival situations.",
+    "category": "Safety",
+    "stock": 120,
+    "imageUrl": "https://thesurvivalsummit.com/wp-content/uploads/2022/12/Fire-Kit.jpg",
+    "rating": 4.8
+  },
+  {
+    "name": "Survival Blanket",
+    "price": 9.99,
+    "description": "Lightweight, thermal survival blanket for emergencies.",
+    "category": "Safety",
+    "stock": 150,
+    "imageUrl": "https://contents.mediadecathlon.com/p1823388/k$0464fb1157ef76c4e89995dae1212206/single-use-survival-blanket-forclaz-8572360.jpg?f=1920x0&format=auto",
+    "rating": 4.6
+  },
+  {
+    "name": "Hiking Backpack 30L",
+    "price": 79.99,
+    "description": "Durable and water-resistant hiking backpack with multiple compartments.",
+    "category": "Backpacks",
+    "stock": 35,
+    "imageUrl": "https://contents.mediadecathlon.com/p2579532/k$4c8b171d07ce4e1ba35cfb9967380a86/picture.jpg",
+    "rating": 4.9
+  },
+  {
+    "name": "50L Expedition Backpack",
+    "price": 129.99,
+    "description": "Large capacity backpack for long camping trips and expeditions.",
+    "category": "Backpacks",
+    "stock": 20,
+    "imageUrl": "https://img.drz.lazcdn.com/static/bd/p/8d0b6100b73a11960aaccdba0b4f59e8.jpg_720x720q80.jpg",
+    "rating": 4.8
+  },
+  {
+    "name": "Hydration Pack with Water Reservoir",
+    "price": 59.99,
+    "description": "Lightweight hydration backpack with a 2-liter water reservoir.",
+    "category": "Backpacks",
+    "stock": 45,
+    "imageUrl": "https://mototechgear.com/cdn/shop/files/MotoTech1200x1200_2cf19cae-709f-4885-b614-35adff679756.jpg?v=1701065867",
+    "rating": 4.7
+  },
+  {
+    "name": "Daypack 20L",
+    "price": 39.99,
+    "description": "Compact and versatile daypack for short hikes and day trips.",
+    "category": "Backpacks",
+    "stock": 60,
+    "imageUrl": "https://contents.mediadecathlon.com/p2583283/k$d0dd4e77b2258dc73f779fcdb2789aa8/picture.jpg?format=auto&f=3000x0",
+    "rating": 4.6
+  }
+]
