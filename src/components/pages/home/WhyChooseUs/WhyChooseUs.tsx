@@ -65,7 +65,7 @@ const WhyChooseUs: React.FC = () => {
             loop
             className="w-full  h-[100%] object-cover  aspect-square border-1 ">
             <source
-              src="https://res.cloudinary.com/dqpohzbea/video/upload/v1729188985/cinematic_camping_video_nature_video_4k_-_Simon_Joseph_1080p_h264_youtube_z2sqcm.mp4"
+              src="https://res.cloudinary.com/dqpohzbea/video/upload/v1729443352/Green_Brown_Yellow_Animated_Collage_Summer_Camp_Video_1_bnl8gw.mp4"
               type="video/mp4"
             />
           </video>
