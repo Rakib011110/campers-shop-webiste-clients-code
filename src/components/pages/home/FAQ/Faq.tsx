@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaBoxes, FaDollarSign, FaHeadset } from "react-icons/fa";
+import { FaBoxes, FaDollarSign } from "react-icons/fa";
 import Title from "../../../utils/Title";
 
 const Faq: React.FC = () => {

@@ -33,7 +33,7 @@ const CartIndex = () => {
   }, [fetchedCartData]);
 
   if (isLoading) return <p>Loading cart...</p>;
-  if (error) return <p>Error loading cart data.</p>;
+  if (error) return <p>Error loading cart data {cartData} </p>;
 
   return (
     <div className="relative">

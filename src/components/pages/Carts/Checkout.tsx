@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { usePlaceOrderMutation } from "../../../redux/api/orderApi";
 import { useGetAllCartsQuery } from "../../../redux/api/cartApi";
