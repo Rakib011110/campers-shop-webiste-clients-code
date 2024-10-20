@@ -7,14 +7,37 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { data: cartItems = [], isLoading, isError } = useGetAllCartsQuery();
+  const {
+    data: cartItemsFromAPI = [],
+    isLoading,
+    isError,
+  } = useGetAllCartsQuery();
   const [removeFromCart] = useRemoveFromCartMutation();
-  // const [clearCart] = useClearCartMutation();
   const [updateCartQuantity] = useUpdateCartQuantityMutation();
+  const [cartItems, setCartItems] = useState<any[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
 
-  // Calculate total price whenever cart items change
+  // Load cart items from localStorage when the component mounts
+  useEffect(() => {
+    const savedCartItems = localStorage.getItem("cartItems");
+    if (savedCartItems) {
+      setCartItems(JSON.parse(savedCartItems));
+    } else {
+      setCartItems(cartItemsFromAPI);
+    }
+  }, [cartItemsFromAPI]);
+
+  // Save cart items to localStorage when cartItems state changes
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } else {
+      localStorage.removeItem("cartItems");
+    }
+  }, [cartItems]);
+
+  // Calculate total price when cartItems change
   useEffect(() => {
     const total = cartItems.reduce(
       (acc, item) => acc + item?.product?.price * item.quantity,
@@ -23,22 +46,17 @@ const Cart = () => {
     setTotalPrice(total as number);
   }, [cartItems]);
 
-  // Warn user before page refresh or closing if the cart is not empty
+  // Warning for page refresh when cart is not empty
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (cartItems.length > 0) {
         e.preventDefault();
-        e.returnValue = ""; // Legacy support for browsers
+        e.returnValue = ""; // Chrome requires returnValue to be set
       }
     };
 
-    if (cartItems.length > 0) {
-      window.addEventListener("beforeunload", handleBeforeUnload);
-    } else {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    }
+    window.addEventListener("beforeunload", handleBeforeUnload);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
@@ -48,6 +66,10 @@ const Cart = () => {
     if (window.confirm("Are you sure you want to remove this item?")) {
       try {
         await removeFromCart({ productId }).unwrap();
+        const updatedCartItems = cartItems.filter(
+          (item) => item.product._id !== productId
+        );
+        setCartItems(updatedCartItems);
       } catch (error) {
         console.error("Error removing product:", error);
       }
@@ -64,6 +86,12 @@ const Cart = () => {
 
     try {
       await updateCartQuantity({ productId, quantity: newQuantity }).unwrap();
+      const updatedCartItems = cartItems.map((item) =>
+        item.product._id === productId
+          ? { ...item, quantity: newQuantity }
+          : item
+      );
+      setCartItems(updatedCartItems);
     } catch (error) {
       console.error("Error updating quantity:", error);
     }
