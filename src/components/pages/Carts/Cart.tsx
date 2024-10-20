@@ -24,7 +24,7 @@ const Cart = () => {
     if (savedCartItems) {
       setCartItems(JSON.parse(savedCartItems));
     } else {
-      setCartItems(cartItemsFromAPI);
+      setCartItems(cartItemsFromAPI as any);
     }
   }, [cartItemsFromAPI]);
 
