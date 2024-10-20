@@ -14,12 +14,34 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
 
+  // Calculate total price whenever cart items change
   useEffect(() => {
     const total = cartItems.reduce(
       (acc, item) => acc + item?.product?.price * item.quantity,
       0
     );
     setTotalPrice(total as number);
+  }, [cartItems]);
+
+  // Warn user before page refresh or closing if the cart is not empty
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (cartItems.length > 0) {
+        e.preventDefault();
+        e.returnValue = ""; // Legacy support for browsers
+      }
+    };
+
+    if (cartItems.length > 0) {
+      window.addEventListener("beforeunload", handleBeforeUnload);
+    } else {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    }
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
   }, [cartItems]);
 
   const handleRemoveItem = async (productId: string) => {
